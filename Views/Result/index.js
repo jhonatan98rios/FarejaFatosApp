@@ -50,15 +50,15 @@ const Result = (props) => {
         <View>
           <Image 
             source={require('../../Assets/loading.gif')}  
-            style={{width: 200, height: 200, opacity: 0.5 }}
+            style={{width: 250, height: 250, opacity: 0.5, margin: 0 }}
           />
-          <Text style={{color: '#777777', fontSize: 18, textAlign: "center"}} > Farejando </Text>
+          <Text style={{color: '#777777', fontSize: 20, textAlign: "center"}} > Farejando </Text>
         </View>
       }
 
       {
         result && 
-        <View>
+        <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }}>
           <Label> 
             <Text style={{ color: '#000000' }}> { result } </Text> 
           </Label>
@@ -75,7 +75,7 @@ const Result = (props) => {
                     borderTopLeftRadius: 10 
                   }} 
                 />
-                <Text style={{ color: '#000000', width: 280, padding: 10 }}>
+                <Text style={{ color: '#000000', width: 270, padding: 10 }}>
                   { item.title }
                 </Text>
               </ListItens>
