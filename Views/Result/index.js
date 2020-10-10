@@ -70,20 +70,19 @@ const Result = (props) => {
                   source={{ uri: item.imageUrl }} 
                   style={{ 
                     width: 80, 
-                    height: 80, 
+                    height: 90, 
                     borderBottomLeftRadius: 10, 
                     borderTopLeftRadius: 10 
                   }} 
                 />
-                <Text style={{ color: '#000000', width: 300, padding: 10 }}>
+                <Text style={{ color: '#000000', width: 280, padding: 10 }}>
                   { item.title }
                 </Text>
               </ListItens>
             </TouchableOpacity>
-        ))}
-
-      </View>
-    }
+          ))}
+        </View>
+      }
       
     </Container>
   )

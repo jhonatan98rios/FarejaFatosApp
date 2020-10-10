@@ -6,7 +6,7 @@ import Result from '../Views/Result'
 const Routes = () => (
    <Router>
       <Scene key = "root">
-         <Scene key = "home" component = {Home} title = "Home" initial = {true} />
+         <Scene key = "home" component = {Home} initial = {true} hideNavBar={true} />
          <Scene key = "result" component = {Result} title = "Result" />
       </Scene>
    </Router>
