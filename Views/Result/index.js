@@ -48,7 +48,11 @@ const Result = (props) => {
       {
         !result && 
         <View>
-          <Text style={{color: '#777777', fontSize: 18}} > Farejando... </Text>
+          <Image 
+            source={require('../../Assets/loading.gif')}  
+            style={{width: 200, height: 200, opacity: 0.5 }}
+          />
+          <Text style={{color: '#777777', fontSize: 18, textAlign: "center"}} > Farejando </Text>
         </View>
       }
 
