@@ -19,7 +19,9 @@ export const RoundedIcon = styled.Image`
 
 export const Input = styled.TextInput`
     width: 85%;
-    padding: 20px;
+    max-height: 360px;
+    padding: 24px;
+    padding-top: 56px;
     background-color: #ffffff;
     border-top-left-radius: 15px;
     border-top-right-radius: 15px;

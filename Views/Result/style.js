@@ -4,7 +4,10 @@ export const Container = styled.View`
     flex: 1;
     justify-content: center;
     align-items: center;
-    background-color: #F5FCFF;
+    background-color: ${props => props.type ? 
+        ( props.type < 3 ? "#FF8888" : "#88FFAA" ) : 
+        "#F5FCFF"
+    };
 `;
 
 export const Label = styled.View`
@@ -13,7 +16,7 @@ export const Label = styled.View`
     margin: 20px;
     align-items: center;
     justify-content: center;
-    background-color: #ccc;
+    background-color: #ffffff;
     border-radius: 10px;
 `;
 
@@ -22,7 +25,7 @@ export const ListItens = styled.View`
     height: 80px;
     margin: 10px;
     justify-content: center;
-    background-color: #ccc;
+    background-color: #ffffff;
     border-radius: 10px;
     flex-direction: row
 `;

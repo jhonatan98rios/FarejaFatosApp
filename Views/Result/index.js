@@ -18,11 +18,12 @@ const Result = (props) => {
       let urls = res.data.news.url
       let titles = res.data.news.title
       let imageUrls = res.data.news.imageUrl
-      let news = []
+      let _type = res.data.type
+      let _news = []
 
       let i = 0
       while(i < 3){
-        news[i] = {
+        _news[i] = {
           url: String( urls[i] ),
           title: String( titles[i] ),
           imageUrl: String( imageUrls[i] )
@@ -30,18 +31,19 @@ const Result = (props) => {
         i++
       }
 
-      setNews(news)
+      setNews(_news)
       setResult(String(res.data.result))
+      setType(_type)
 
     }).catch((err) => Alert.alert('Message Error', err))
-  })
+  }, [])
 
   function openURL(url){
     Linking.openURL(url).catch((err)=> Alert.alert('Erro ao abrir a página', err))
   }
 
   return(
-    <Container>
+    <Container type={type}>
 
       {
         !result && 
@@ -58,7 +60,7 @@ const Result = (props) => {
           </Label>
           
           { news.map((item, index) => (
-            <TouchableOpacity key={index} onPress={ ()=>{ this.openURL(item.url) }}>
+            <TouchableOpacity key={index} onPress={ ()=>{ openURL(item.url) }}>
               <ListItens>
                 <Image 
                   source={{ uri: item.imageUrl }} 

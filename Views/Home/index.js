@@ -33,6 +33,7 @@ const Home = () => {
         placeholderTextColor="grey"
         multiline={true}
         numberOfLines={16}
+        autoFocus={true}
       />
       <Button
         onPress={()=> Actions.result({ sample })}
