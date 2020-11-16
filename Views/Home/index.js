@@ -1,5 +1,5 @@
 import React, { useState, useEffect, useCallback, Component } from "react";
-import { AppRegistry, Text, View, Image } from "react-native";
+import { AppRegistry, Text, View, Image, TouchableOpacity } from "react-native";
 import { Container, Button, Input, RoundedIcon } from './style'
 import { Actions } from 'react-native-router-flux';
 import ShareMenu, { ShareMenuReactView } from "react-native-share-menu";
@@ -7,6 +7,20 @@ import ShareMenu, { ShareMenuReactView } from "react-native-share-menu";
 const Home = () => {
   const [sample, setSample] = useState(null)
   const [sharedMimeType, setSharedMimeType] = useState(null);
+  const [error, setError] = useState(null)
+
+  function handleClick(string){
+    if (string?.length > 24){
+      Actions.result({ string })
+    }else {
+      setError('O texto informado é muito curto. Tente um texto maior')
+    }
+  };
+
+  function clearAll(){
+    setSample(null)
+    setError(null)
+  }
 
   const handleShare = useCallback((item) => {
     if (!item) return
@@ -35,11 +49,16 @@ const Home = () => {
         numberOfLines={16}
         autoFocus={true}
       />
-      <Button
-        onPress={()=> Actions.result({ sample })}
-      >
+
+      <Button onPress={()=> handleClick(sample)}>
         <Text style={{ color: '#000000' }} > Verificar notícia </Text> 
       </Button>
+
+      { error && <Text style={{ color: '#ff5500', marginBottom: 16 }}> { error } </Text> }
+
+      <TouchableOpacity onPress={clearAll}> 
+        <Text> Limpar </Text>
+      </TouchableOpacity>
     </Container>
   )
 }

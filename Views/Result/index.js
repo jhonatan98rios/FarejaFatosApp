@@ -8,6 +8,7 @@ const Result = (props) => {
   const [result, setResult] = useState(null)
   const [news, setNews] = useState([])
   const [ type, setType ] = useState(NaN)
+  const [error, setError ] = useState(null)
 
   useEffect(()=>{
 
@@ -20,6 +21,10 @@ const Result = (props) => {
       let imageUrls = res.data.news.imageUrl
       let _type = res.data.type
       let _news = []
+
+      if (!titles || titles[0] == undefined){
+        setError('Ocorreu um erro. Verifique sua conexão ou tente mais tarde')
+      }
 
       let i = 0
       while(i < 3){
@@ -57,7 +62,7 @@ const Result = (props) => {
       }
 
       {
-        result && 
+        (result && !error) && 
         <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }}>
           <Label> 
             <Text style={{ color: '#000000' }}> { result } </Text> 
@@ -83,11 +88,11 @@ const Result = (props) => {
           ))}
         </View>
       }
+
+      { error && <Text style={{ color: '#ffffff', marginBottom: 16, width: '50%', textAlign: 'center' }}> { error } </Text> }
       
     </Container>
   )
-
-
 }
 
 export default Result

@@ -7,7 +7,7 @@ const Routes = () => (
    <Router>
       <Scene key = "root">
          <Scene key = "home" component = {Home} initial = {true} hideNavBar={true} />
-         <Scene key = "result" component = {Result} title = "Result" />
+         <Scene key = "result" component = {Result} title = "Resultado" />
       </Scene>
    </Router>
 )

@@ -22,8 +22,8 @@ export const Label = styled.View`
 `;
 
 export const ListItens = styled.View`
-    width: 90%;
-    max-width: 360px;
+    width: 85%;
+    max-width: 340px;
     height: 90px;
     margin: 10px auto;
     justify-content: center;
