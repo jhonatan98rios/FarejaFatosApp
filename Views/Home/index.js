@@ -10,8 +10,9 @@ const Home = () => {
   const [error, setError] = useState(null)
 
   function handleClick(string){
+
     if (string?.length > 24){
-      Actions.result({ string })
+      Actions.result({ sample: string })
     }else {
       setError('O texto informado é muito curto. Tente um texto maior')
     }
@@ -47,18 +48,19 @@ const Home = () => {
         placeholderTextColor="grey"
         multiline={true}
         numberOfLines={16}
-        autoFocus={true}
       />
 
       <Button onPress={()=> handleClick(sample)}>
         <Text style={{ color: '#000000' }} > Verificar notícia </Text> 
       </Button>
 
-      { error && <Text style={{ color: '#ff5500', marginBottom: 16 }}> { error } </Text> }
+      { error && <Text style={{ color: '#ff0000', marginBottom: 16 }}> { error } </Text> }
 
       <TouchableOpacity onPress={clearAll}> 
         <Text> Limpar </Text>
       </TouchableOpacity>
+
+      <Text style={{ textAlign: 'center', color: '#ff0000', width: 320, marginTop: 20, fontSize: 12 }}> Nunca informe dados pessoais. As noticias informadas serão armazenadas e reutilizadas no treino do modelo. </Text>
     </Container>
   )
 }
