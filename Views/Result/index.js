@@ -21,23 +21,27 @@ const Result = (props) => {
       sample: props.sample
     }).then( res =>{
 
+      /* Validations */
       if(res.data.type){
         setType(res.data.type)
-      }
-
-      if(res.data.result){
+      } if(res.data.result){
         setResult(res.data.result)
-      }
-
-      if(res.data.news.length > 0){
+      } if(res.data.news.length > 0){
         setNews(res.data.news)
       }else{
         setError('Não foi possível encontrar notícias semelhantes')
-      }
-      
-      if(!res.data.result || !res.data.news || !res.data.type) {
+      } if(!res.data.result || !res.data.news || !res.data.type) {
         setError('Ocorreu um erro. Verifique sua conexão ou tente mais tarde')
       }
+
+      /* Second requisition to persist sample in database */
+      axios.post('https://hackcovid-19-fakenews.herokuapp.com/save_news', {
+        sample: props.sample
+      }).then(res => {
+        console.log('Salvo com sucesso')
+      }).catch(err => {
+        console.log('Erro ao salvar')
+      })
 
     }).catch((err) => {
       setError('Ocorreu um erro. Verifique sua conexão ou tente mais tarde')
@@ -57,10 +61,13 @@ const Result = (props) => {
         <View>
           <Image 
             source={require('../../Assets/loading.gif')}  
-            style={{width: 320, height: 250, opacity: 0.5, margin: 0 }}
+            style={{width: 300, height: 250, opacity: 0.4, margin: 0, marginLeft: 20 }}
           />
           <Text style={{color: '#777777', fontSize: 20, textAlign: "center"}} > Farejando </Text>
           <Text style={{ textAlign: 'center', color: '#555555', width: 320, marginTop: 20 }}> 
+            Estamos analisando a notícia. Aguarde alguns segundos.  
+          </Text>  
+          <Text style={{ textAlign: 'center', color: '#555555', width: 320, marginTop: 30, fontSize: 12 }}> 
             O aplicativo está em fase beta, por isso, pode apresentar baixa acurácia quando classificando notícias muito recentes ou de fontes desconhecidas.  
           </Text>
         </View>

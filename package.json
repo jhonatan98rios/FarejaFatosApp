@@ -7,6 +7,7 @@
     "ios": "react-native run-ios",
     "start": "react-native start",
     "log": "react-native log-android",
+    "build": "cd android && ./gradlew assembleRelease",
     "test": "jest",
     "lint": "eslint ."
   },
