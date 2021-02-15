@@ -38,7 +38,14 @@ const Home = () => {
         <Text style={{ color: '#ffffff' }} > Verificar notícia </Text> 
       </Button>
 
-      <TouchableOpacity onPress={openURL}> 
+      <TouchableOpacity onPress={Actions.hotNews}> 
+        <Text> Notícias em alta </Text>
+      </TouchableOpacity>
+
+      <TouchableOpacity 
+        onPress={openURL}
+        style={{ position: 'absolute', bottom: 32 }}
+      > 
         <Text> Mais informações </Text>
       </TouchableOpacity>
 
