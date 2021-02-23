@@ -1,8 +1,11 @@
 import React, { useState, useEffect, useCallback, Component } from "react";
-import { Text, Image, Alert, View, Linking, TouchableOpacity } from 'react-native';
+import { Text, View } from 'react-native';
+import { CardList } from '../../Components/CardList'
+import { Loader } from '../../Components/Loader'
+
 import { Actions } from 'react-native-router-flux';
 import axios from 'axios'
-import {Container, Label, ListItens} from './style'
+import {Container, Label } from './style'
 
 const Result = (props) => {
 
@@ -49,57 +52,26 @@ const Result = (props) => {
     }) 
   }, [])
 
-  function openURL(url){
-    Linking.openURL(url).catch((err)=> Alert.alert('Erro ao abrir a página', err))
-  }
-
   return(
     <Container type={type}>
 
-      {
-        !result && 
-        <View>
-          <Image 
-            source={require('../../Assets/loading.gif')}  
-            style={{width: 300, height: 250, opacity: 0.4, margin: 0, marginLeft: 20 }}
-          />
-          <Text style={{color: '#777777', fontSize: 20, textAlign: "center"}} > Farejando </Text>
-          <Text style={{ textAlign: 'center', color: '#555555', width: 320, marginTop: 20 }}> 
-            Estamos analisando a notícia. Aguarde alguns segundos.  
-          </Text>  
-          <Text style={{ textAlign: 'center', color: '#555555', width: 320, marginTop: 30, fontSize: 12 }}> 
-            O aplicativo está em fase beta, por isso, pode apresentar baixa acurácia quando classificando notícias muito recentes ou de fontes desconhecidas.  
-          </Text>
-        </View>
-      }
+      {!result && (
+        <Loader 
+          title={'Farejando'} 
+          subtitle={'Estamos analisando a notícia. Aguarde alguns segundos'}
+          disclaimer={'O aplicativo está em fase beta, por isso, pode apresentar baixa acurácia quando classificando notícias muito recentes ou de fontes desconhecidas.'}
+        />
+      )}
 
-      {
-        result && 
+      {result && (
         <View style={{ justifyContent: 'center', alignItems: 'center' }}>
           <Label> 
             <Text style={{ color: '#000000' }}> { result } </Text> 
           </Label>
         </View>
-      }
+      )}
 
-      { news && news.map((item, index) => (
-        <TouchableOpacity key={index} onPress={ ()=>{ openURL(item.link) }}>
-          <ListItens>
-            <Image 
-              source={{ uri: item.img }} 
-              style={{ 
-                width: 80, 
-                height: 90, 
-                borderBottomLeftRadius: 10, 
-                borderTopLeftRadius: 10 
-              }} 
-            />
-            <Text style={{ color: '#000000', width: 270, padding: 10 }}>
-              { item.title }
-            </Text>
-          </ListItens>
-        </TouchableOpacity>
-      ))}
+      { news && <CardList news={news} /> }
 
       { error && <Text style={{ color: '#ffffff', marginBottom: 16, width: '50%', textAlign: 'center' }}> { error } </Text> }
       
