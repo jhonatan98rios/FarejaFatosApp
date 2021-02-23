@@ -3,7 +3,7 @@ import styled from 'styled-components/native';
 export const CardImage = styled.Image`
   width: 300px; 
   height: 250px; 
-  opacity: 0.4; 
+  opacity: 0.6; 
   margin: 0;
   margin-left: 20px; 
 `
