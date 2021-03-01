@@ -4,8 +4,8 @@ export const Container = styled.View`
     flex: 1;
     justify-content: center;
     align-items: center;
-    background-color: ${props => props.type ? 
-        ( props.type < 3 ? "#FF8888" : "#88FFAA" ) : 
+    background-color: ${props => props.result ? 
+        ( props.result == false ? "#FF8888" : "#88FFAA" ) : 
         "#F5FCFF"
     };
 `;
@@ -20,6 +20,8 @@ export const Label = styled.View`
     background-color: #ffffff;
     border-radius: 10px;
 `;
+
+
 
 export const ListItens = styled.View`
     width: 85%;

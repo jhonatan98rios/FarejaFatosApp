@@ -3,7 +3,7 @@ import styled from 'styled-components/native';
 export const Card = styled.View`
   width: 100%;
   max-width: 350px;
-  min-height: 200px;
+  min-height: 100px;
   margin: 10px auto;
   background-color: #ffffff;
   border-radius: 10px;

@@ -14,7 +14,7 @@ export function CardList({news}){
       { news.map((item, index) => (
         <TouchableOpacity key={index} onPress={ ()=>{ openURL(item.link) }}>
           <Card>
-            <CardImage source={{ uri: item.image }} />
+            { item.image && <CardImage source={{ uri: item.image }} /> }
             <CardTitle> { item.title } </CardTitle>
           </Card>
         </TouchableOpacity>

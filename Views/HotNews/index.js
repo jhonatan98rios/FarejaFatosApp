@@ -2,7 +2,6 @@ import React, { useState, useEffect } from "react";
 import { Container } from './style'
 import { CardList } from '../../Components/CardList'
 import { Loader } from '../../Components/Loader'
-//import {news} from './fake'
 import axios from "axios";
 
 const HotNews = () => {
@@ -11,14 +10,12 @@ const HotNews = () => {
 
   useEffect(() => {
     
-    axios.get('https://fareja-fatos-api.herokuapp.com/')
+    axios.get('http://10.0.2.2:5000/hot-news')
       .then((response) => {
+        console.log(response.data)
         setNews(response.data)
-      })
-      .catch((err) => {
-        console.log(err)
-      })  
-    
+      }) 
+      .catch((err) => console.log(err) )  
   }, [])
 
   return(
