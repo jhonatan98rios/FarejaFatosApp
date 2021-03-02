@@ -18,10 +18,16 @@ const Result = (props) => {
     if(!props.sample){
       Actions.home()
     }
-
-    axios.post('http://10.0.2.2:5000/classifier', {
-      sample: props.sample
-    }).then( res =>{
+    
+    axios({
+      url: 'https://fareja-fatos-api.herokuapp.com/classifier',
+      method: "post",
+      data: { sample: props.sample },
+      config: {
+        headers: { 'Content-Type': 'application/json' }
+      }
+    })
+    .then( res =>{
 
       /* Validations */
       if(res.data.result){
@@ -35,8 +41,13 @@ const Result = (props) => {
       }
 
       /* Second requisition to persist sample in database */
-      axios.post('http://10.0.2.2:5000/save_news', {
-        sample: props.sample
+      axios({
+        url: 'https://fareja-fatos-api.herokuapp.com/save_news',
+        method: "post",
+        data: { sample: props.sample },
+        config: {
+          headers: { 'Content-Type': 'application/json' }
+        }
       })
       .then(res => console.log('Salvo com sucesso'))
       .catch(err => console.log('Erro ao salvar'))

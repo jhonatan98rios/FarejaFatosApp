@@ -10,7 +10,13 @@ const HotNews = () => {
 
   useEffect(() => {
     
-    axios.get('http://10.0.2.2:5000/hot-news')
+    axios({
+      url: 'https://fareja-fatos-api.herokuapp.com/hot-news',
+      method: "get",
+      config: {
+        headers: { 'Content-Type': 'application/json' }
+      }
+    })
       .then((response) => {
         console.log(response.data)
         setNews(response.data)
