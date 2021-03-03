@@ -40,7 +40,7 @@ const Search = (props) => {
       />
 
       <Button onPress={()=> handleClick(sample)}>
-        <Text style={{ color: '#000000' }} > Verificar notícia </Text> 
+        <Text style={{ color: '#ffffff' }} > Verificar notícia </Text> 
       </Button>
 
       { error && <Text style={{ color: '#ff0000', marginBottom: 16 }}> { error } </Text> }

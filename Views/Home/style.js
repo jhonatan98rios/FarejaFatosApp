@@ -22,7 +22,9 @@ export const Button = styled.TouchableOpacity`
     height: 50px;
     align-items: center;
     justify-content: center;
-    background-color: #33FF99;  
+    /* background-color: #33FF99;   */
+    background-color: #6BC6AF;
     border-radius: 15px;
     margin-bottom: 16px;
+    color: #fff;
 `;
