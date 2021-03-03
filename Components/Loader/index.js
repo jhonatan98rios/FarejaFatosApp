@@ -5,7 +5,7 @@ import { CardImage, Title, Subtitle, Disclaimer } from './style'
 export function Loader({ title, subtitle, disclaimer }){
   return (
     <View>
-      <CardImage source={require('../../Assets/loading2.gif')}/>
+      <CardImage source={require('../../Assets/loading.gif')}/>
 
       { title && (
         <Title> 

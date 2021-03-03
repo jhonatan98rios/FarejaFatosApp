@@ -3,7 +3,7 @@
   "version": "0.0.1",
   "private": true,
   "scripts": {
-    "android": "react-native run-android",
+    "android": "react-native run-android warning-mode=all",
     "ios": "react-native run-ios",
     "start": "react-native start",
     "log": "react-native log-android",

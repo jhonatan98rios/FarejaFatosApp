@@ -11,7 +11,7 @@ export const Container = styled.View`
 `;
 
 export const Label = styled.View`
-    width: 360px;
+    width: 350px;
     max-width: 90%;
     height: 75px;
     margin: 20px;
