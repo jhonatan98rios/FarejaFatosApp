@@ -1,6 +1,6 @@
 {
   "name": "fareja-fatos",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "private": true,
   "scripts": {
     "android": "react-native run-android",
@@ -8,6 +8,7 @@
     "start": "react-native start",
     "log": "react-native log-android",
     "build": "cd android && ./gradlew assembleRelease",
+    "bandle":  "cd android && ./gradlew bundleRelease",
     "test": "jest",
     "lint": "eslint ."
   },

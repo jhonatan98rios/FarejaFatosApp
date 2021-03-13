@@ -1,4 +1,5 @@
 {
   "name": "Fareja Fatos",
-  "displayName": "Fareja Fatos"
+  "displayName": "Fareja Fatos",
+  "description": "Fareja Fatos é um aplicativo que utiliza processamento de linguagem natural (machine learning), para reconhecer e classificar noticias verdadeiras e falsas. Para isso nosso algoritmo foi treinado utilizando milhares de dados selecionados de notícias verificadas por profissionais do meio jornalístico. Além disso, nosso app foi criado com foco em usabilidade, ou seja, todo o fluxo de uso pode ser feito com apenas 5 cliques! Dessa forma ele se torna simples e eficiente para usuários de qualquer idade."
 }

@@ -33,7 +33,7 @@ const Search = (props) => {
       <Input
         value={sample}
         onChangeText={ value => setSample(value)}
-        placeholder="Cole sua notícia aqui para verificar"
+        placeholder="Cole sua notícia aqui para verificar se ela é verdadeira"
         placeholderTextColor="grey"
         multiline={true}
         numberOfLines={16}

@@ -5,14 +5,11 @@ import { Actions } from 'react-native-router-flux';
 import ShareMenu, { ShareMenuReactView } from "react-native-share-menu";
 
 const Home = () => {
-  const [sharedMimeType, setSharedMimeType] = useState(null);
   const [error, setError] = useState(null)
 
   const handleShare = useCallback((item) => {
     if (!item) return
-    const { mimeType, data } = item;
-    /* setSharedData(data); */
-    setSharedMimeType(mimeType);
+    const { data } = item;
     Actions.search({ sample: data })
 
   }, []);
@@ -28,7 +25,6 @@ const Home = () => {
     Linking.openURL('https://fareja-fatos-web.herokuapp.com/').catch((err)=> Alert.alert('Erro ao abrir a página', err))
   }
 
-
   return(
     <Container style={{ backgroundColor: '#d0dddd' }} >
 
@@ -39,14 +35,14 @@ const Home = () => {
       </Button>
 
       <TouchableOpacity onPress={Actions.hotNews}> 
-        <Text> Notícias em alta </Text>
+        <Text> Notícias populares </Text>
       </TouchableOpacity>
 
       <TouchableOpacity 
         onPress={openURL}
         style={{ position: 'absolute', bottom: 32 }}
       > 
-        <Text> Mais informações </Text>
+        <Text> Acesse nosso site </Text>
       </TouchableOpacity>
 
     </Container>
